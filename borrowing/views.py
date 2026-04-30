@@ -20,7 +20,7 @@ class BorrowingViewSet(viewsets.ModelViewSet):
             return BorrowingListSerializer
 
     def get_queryset(self):
-        queryset = Borrowing.objects.all()
+        queryset = Borrowing.objects.select_related("book", "user")
         if not self.request.user.is_staff:
             queryset = queryset.filter(user=self.request.user)
         is_active = self.request.query_params.get("is_active")
