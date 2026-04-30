@@ -30,7 +30,7 @@ class AdminBookApiTest(TestCase):
             "author": "Test Author",
             "cover": "HARD",
             "inventory": 10,
-            "daily_fee": 100.00
+            "daily_fee": 100.00,
         }
         result = self.client.post(book_url(), payload)
         self.assertEqual(result.status_code, status.HTTP_201_CREATED)
@@ -52,7 +52,7 @@ class AuthenticatedBookApiTest(TestCase):
             "author": "Test Author",
             "cover": "HARD",
             "inventory": 10,
-            "daily_fee": 100.00
+            "daily_fee": 100.00,
         }
         result = self.client.post(book_url(), payload)
         self.assertEqual(result.status_code, status.HTTP_403_FORBIDDEN)
@@ -66,14 +66,13 @@ class UnauthorizedBookApiTest(TestCase):
         result = self.client.get(book_url())
         self.assertEqual(result.status_code, status.HTTP_200_OK)
 
-
     def test_book_detail_unauthorized(self):
         book = Book.objects.create(
             title="Test Book",
             author="Test Author",
             cover="HARD",
             inventory=10,
-            daily_fee=100.00
+            daily_fee=100.00,
         )
         result = self.client.get(book_url(pk=book.id))
         self.assertEqual(result.status_code, status.HTTP_200_OK)

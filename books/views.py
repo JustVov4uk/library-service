@@ -21,5 +21,5 @@ class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_permissions(self):
         if self.request.method == "GET":
-           return [AllowAny()]
+            return [AllowAny()]
         return [IsAdminUser()]

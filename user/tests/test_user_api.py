@@ -4,8 +4,10 @@ from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APIClient
 
+
 def user_url():
     return reverse("user:user_register")
+
 
 def user_me_url():
     return reverse("user:user_me")

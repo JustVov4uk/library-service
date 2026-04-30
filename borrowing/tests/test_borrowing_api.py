@@ -10,6 +10,7 @@ from borrowing.models import Borrowing
 def borrowing_url():
     return reverse("borrowing:borrowing-list")
 
+
 def borrowing_return_url(pk):
     return reverse("borrowing:borrowing-borrowing-return", args=[pk])
 
@@ -31,7 +32,7 @@ class BorrowingApiTests(TestCase):
             author="Test Author",
             cover="HARD",
             inventory=10,
-            daily_fee=100.00
+            daily_fee=100.00,
         )
 
     def test_create_borrowing(self):

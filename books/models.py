@@ -7,7 +7,6 @@ class Book(models.Model):
         HARD = ("HARD", "Hard")
         SOFT = ("SOFT", "Soft")
 
-
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     cover = models.CharField(

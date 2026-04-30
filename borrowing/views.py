@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from django.utils import timezone
 
 from borrowing.models import Borrowing
-from borrowing.serializers import BorrowingListSerializer, BorrowingCreateSerializer
+from borrowing.serializers import (BorrowingListSerializer,
+                                   BorrowingCreateSerializer)
 
 
 class BorrowingViewSet(viewsets.ModelViewSet):
